@@ -28,7 +28,7 @@ namespace CsvCompare
             DataTable dt = new DataTable();
 
             //Lendo Todas as linhas do arquivo CSV
-            string[] Linha = System.IO.File.ReadAllLines(@"C:\Projetos GIT\MeuCSV.csv");
+            string[] Linha = System.IO.File.ReadAllLines(@"C:\Projetos GIT\CsvCompare\MeuCSV.csv");            
 
             //Neste For, vamos percorrer todas as linhas que foram lidas do arquivo CSV
             for (Int32 i = 0; i < Linha.Length; i++)

@@ -35,22 +35,25 @@
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.txtFile1 = new System.Windows.Forms.TextBox();
             this.txtFile2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCompare = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvFiles
             // 
             this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFiles.Location = new System.Drawing.Point(25, 92);
+            this.dgvFiles.Location = new System.Drawing.Point(25, 179);
             this.dgvFiles.Name = "dgvFiles";
-            this.dgvFiles.Size = new System.Drawing.Size(534, 198);
+            this.dgvFiles.Size = new System.Drawing.Size(534, 266);
             this.dgvFiles.TabIndex = 0;
             // 
             // btnFile1
             // 
-            this.btnFile1.Location = new System.Drawing.Point(210, 51);
+            this.btnFile1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFile1.Location = new System.Drawing.Point(445, 82);
             this.btnFile1.Name = "btnFile1";
-            this.btnFile1.Size = new System.Drawing.Size(75, 23);
+            this.btnFile1.Size = new System.Drawing.Size(114, 30);
             this.btnFile1.TabIndex = 1;
             this.btnFile1.Text = "Arquivo 1";
             this.btnFile1.UseVisualStyleBackColor = true;
@@ -58,9 +61,10 @@
             // 
             // btnFile2
             // 
-            this.btnFile2.Location = new System.Drawing.Point(484, 51);
+            this.btnFile2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFile2.Location = new System.Drawing.Point(445, 128);
             this.btnFile2.Name = "btnFile2";
-            this.btnFile2.Size = new System.Drawing.Size(75, 23);
+            this.btnFile2.Size = new System.Drawing.Size(114, 30);
             this.btnFile2.TabIndex = 2;
             this.btnFile2.Text = "Arquivo 2";
             this.btnFile2.UseVisualStyleBackColor = true;
@@ -75,30 +79,54 @@
             // 
             // txtFile1
             // 
-            this.txtFile1.Location = new System.Drawing.Point(25, 53);
+            this.txtFile1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFile1.Location = new System.Drawing.Point(25, 82);
             this.txtFile1.Name = "txtFile1";
-            this.txtFile1.Size = new System.Drawing.Size(179, 20);
+            this.txtFile1.Size = new System.Drawing.Size(403, 30);
             this.txtFile1.TabIndex = 3;
             // 
             // txtFile2
             // 
-            this.txtFile2.Location = new System.Drawing.Point(311, 51);
+            this.txtFile2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFile2.Location = new System.Drawing.Point(25, 128);
             this.txtFile2.Name = "txtFile2";
-            this.txtFile2.Size = new System.Drawing.Size(167, 20);
+            this.txtFile2.Size = new System.Drawing.Size(403, 30);
             this.txtFile2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(126, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(315, 31);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Techvirtus - ComparNFE";
+            // 
+            // btnCompare
+            // 
+            this.btnCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompare.Location = new System.Drawing.Point(445, 451);
+            this.btnCompare.Name = "btnCompare";
+            this.btnCompare.Size = new System.Drawing.Size(114, 30);
+            this.btnCompare.TabIndex = 6;
+            this.btnCompare.Text = "Compare";
+            this.btnCompare.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 474);
+            this.ClientSize = new System.Drawing.Size(606, 488);
+            this.Controls.Add(this.btnCompare);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFile2);
             this.Controls.Add(this.txtFile1);
             this.Controls.Add(this.btnFile2);
             this.Controls.Add(this.btnFile1);
             this.Controls.Add(this.dgvFiles);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Techvirtus";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).EndInit();
             this.ResumeLayout(false);
@@ -115,6 +143,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.TextBox txtFile1;
         private System.Windows.Forms.TextBox txtFile2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCompare;
     }
 }
 
