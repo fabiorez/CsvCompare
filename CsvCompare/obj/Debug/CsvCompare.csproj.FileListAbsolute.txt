@@ -1,0 +1,10 @@
+C:\Projetos Git\CsvCompare\CsvCompare\bin\Debug\CsvCompare.exe.config
+C:\Projetos Git\CsvCompare\CsvCompare\bin\Debug\CsvCompare.exe
+C:\Projetos Git\CsvCompare\CsvCompare\bin\Debug\CsvCompare.pdb
+C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csprojResolveAssemblyReference.cache
+C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.Form1.resources
+C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.Properties.Resources.resources
+C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csproj.GenerateResource.Cache
+C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csproj.CoreCompileInputs.cache
+C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.exe
+C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.pdb
