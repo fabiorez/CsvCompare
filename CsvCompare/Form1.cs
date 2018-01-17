@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,8 +11,8 @@ namespace CsvCompare
     public partial class Form1 : Form
     {
         #region variaveis globais
-        List<Arquivo1> values1 = new List<Arquivo1>();
-        List<Arquivo2> values2 = new List<Arquivo2>();
+        List<Arquivo> values1 = new List<Arquivo>();
+        List<Arquivo> values2 = new List<Arquivo>();
         #endregion
 
         #region Formulario
@@ -23,89 +24,14 @@ namespace CsvCompare
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            AlterarCorDatagrid(dgvFiles);
         }
 
         #endregion
 
         #region Classes
 
-        class Arquivo1
-        {
-            string colA;
-            string colB;
-            string colC;
-            string colD;
-            string colE;
-            string colF;
-            string colG;
-            string colH;
-            string colI;
-            string colJ;
-            string colK;
-            string colL;
-            string colM;
-            string colN;
-            string colO;
-            string colP;
-            string colQ;
-            string colR;
-            string colS;
-            string colT;
-            string colU;
-            string colV;
-            string colW;
-            string colX;
-            string colY;
-            string colZ;
-            string colAA;
-
-            public static Arquivo1 FromCsv(string csvLine)
-            {
-                string[] values = csvLine.Split(',');
-                Arquivo1 arquivo = new Arquivo1();
-                arquivo.colA = values[0].ToString();
-                arquivo.colB = values[1].ToString();
-                arquivo.colC = values[2].ToString();
-                arquivo.colD = values[3].ToString();
-                arquivo.colE = values[4].ToString();
-                arquivo.colF = values[5].ToString();
-                arquivo.colF = values[6].ToString();
-                arquivo.colG = values[7].ToString();
-                arquivo.colH = values[8].ToString();
-                arquivo.colI = values[9].ToString();
-                arquivo.colJ = values[10].ToString();
-                arquivo.colK = values[11].ToString();
-                arquivo.colL = values[12].ToString();
-                arquivo.colM = values[13].ToString();
-                arquivo.colN = values[14].ToString();
-                arquivo.colO = values[15].ToString();
-                arquivo.colP = values[16].ToString();
-                arquivo.colQ = values[17].ToString();
-                arquivo.colR = values[18].ToString();
-                arquivo.colS = values[19].ToString();
-                arquivo.colT = values[20].ToString();
-                arquivo.colU = values[21].ToString();
-                arquivo.colV = values[22].ToString();
-                arquivo.colW = values[23].ToString();
-                arquivo.colX = values[24].ToString();
-                if (values.Count() > 25)
-                {
-                    arquivo.colY = values[25].ToString();
-                    if (values.Count() > 26)
-                    {
-                        arquivo.colZ = values[26].ToString();
-                        if (values.Count() > 27)
-                        {
-                            arquivo.colAA = values[27].ToString();
-                        }
-                    }
-                }
-                return arquivo;
-            }
-        }
-
-        class Arquivo2
+        class Arquivo
         {
             string colA;
             string colB;
@@ -160,12 +86,12 @@ namespace CsvCompare
             string colAY;
             string colAZ;
 
-            public static Arquivo2 FromCsv(string csvLine)
+            public static Arquivo FromCsv(string csvLine)
             {
                 string[] values = csvLine.Split(';');
                 if (values.Count() > 2)
                 {
-                    Arquivo2 arquivo = new Arquivo2();
+                    Arquivo arquivo = new Arquivo();
                     arquivo.colA = values[0].ToString();
                     arquivo.colB = values[1].ToString();
                     arquivo.colC = values[2].ToString();
@@ -284,23 +210,56 @@ namespace CsvCompare
             dgvFiles.DataSource = resultado;
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
 
         #region Metodos de Apoio
 
+        public void AlterarCorDatagrid(DataGridView dgv)
+        {
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dgv.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgv.BackgroundColor = Color.White;
+
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
+
         private void CarregaArquivo(string filePath)
         {
+            try
+            {
             values1 = File.ReadAllLines(filePath)
-                                           .Select(v => Arquivo1.FromCsv(v))
+                                           .Select(v => Arquivo.FromCsv(v))
                                            .ToList();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
+            }
         }
 
         private void CarregaArquivo2(string filePath)
         {
+            try
+            {
             values2 = File.ReadAllLines(filePath)
                                            .Skip(1)
-                                           .Select(v => Arquivo2.FromCsv(v))
+                                           .Select(v => Arquivo.FromCsv(v))
                                            .ToList();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
+            }
         }
 
         private List<Comparacao> CompararArquivosFake()
@@ -318,5 +277,6 @@ namespace CsvCompare
         }
 
         #endregion
+
     }
 }
