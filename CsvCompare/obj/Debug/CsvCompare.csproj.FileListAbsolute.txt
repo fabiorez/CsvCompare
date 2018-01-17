@@ -7,3 +7,4 @@ C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csproj.GenerateResour
 C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csproj.CoreCompileInputs.cache
 C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.exe
 C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.pdb
+C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csprojResolveAssemblyReference.cache

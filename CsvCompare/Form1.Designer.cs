@@ -45,7 +45,7 @@
             this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFiles.Location = new System.Drawing.Point(25, 179);
             this.dgvFiles.Name = "dgvFiles";
-            this.dgvFiles.Size = new System.Drawing.Size(534, 266);
+            this.dgvFiles.Size = new System.Drawing.Size(543, 266);
             this.dgvFiles.TabIndex = 0;
             // 
             // btnFile1
@@ -57,7 +57,7 @@
             this.btnFile1.TabIndex = 1;
             this.btnFile1.Text = "Arquivo 1";
             this.btnFile1.UseVisualStyleBackColor = true;
-            this.btnFile1.Click += new System.EventHandler(this.button1_Click);
+            this.btnFile1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnFile2
             // 
@@ -68,6 +68,7 @@
             this.btnFile2.TabIndex = 2;
             this.btnFile2.Text = "Arquivo 2";
             this.btnFile2.UseVisualStyleBackColor = true;
+            this.btnFile2.Click += new System.EventHandler(this.BtnFile2_Click);
             // 
             // openFileDialog1
             // 
@@ -112,6 +113,7 @@
             this.btnCompare.TabIndex = 6;
             this.btnCompare.Text = "Compare";
             this.btnCompare.UseVisualStyleBackColor = true;
+            this.btnCompare.Click += new System.EventHandler(this.BtnCompare_Click);
             // 
             // Form1
             // 
