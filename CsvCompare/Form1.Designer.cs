@@ -57,7 +57,7 @@
             // 
             this.btnFile1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.btnFile1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFile1.ForeColor = System.Drawing.Color.Navy;
+            this.btnFile1.ForeColor = System.Drawing.Color.Black;
             this.btnFile1.Location = new System.Drawing.Point(445, 91);
             this.btnFile1.Name = "btnFile1";
             this.btnFile1.Size = new System.Drawing.Size(123, 30);
@@ -70,7 +70,7 @@
             // 
             this.btnFile2.BackColor = System.Drawing.SystemColors.MenuBar;
             this.btnFile2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFile2.ForeColor = System.Drawing.Color.Navy;
+            this.btnFile2.ForeColor = System.Drawing.Color.Black;
             this.btnFile2.Location = new System.Drawing.Point(445, 137);
             this.btnFile2.Name = "btnFile2";
             this.btnFile2.Size = new System.Drawing.Size(123, 30);
@@ -117,7 +117,7 @@
             // 
             this.btnCompare.BackColor = System.Drawing.SystemColors.MenuBar;
             this.btnCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompare.ForeColor = System.Drawing.Color.Navy;
+            this.btnCompare.ForeColor = System.Drawing.Color.Black;
             this.btnCompare.Location = new System.Drawing.Point(454, 461);
             this.btnCompare.Name = "btnCompare";
             this.btnCompare.Size = new System.Drawing.Size(114, 30);
@@ -130,9 +130,9 @@
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(25, 4);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(25, 6);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(80, 72);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(85, 79);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 7;
             this.pictureBoxLogo.TabStop = false;
@@ -140,9 +140,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(521, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(562, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(47, 46);
+            this.pictureBox1.Size = new System.Drawing.Size(18, 19);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(601, 507);
+            this.ClientSize = new System.Drawing.Size(584, 507);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.btnCompare);
