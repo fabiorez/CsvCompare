@@ -205,10 +205,17 @@ namespace CsvCompare
 
         private void BtnCompare_Click(object sender, EventArgs e)
         {
-            List<Comparacao> resultado = CompararArquivosFake();
+            LimparDatagrid();
+            bool ehvalido = ValidarInformacoes();
 
-            dgvFiles.DataSource = resultado;
+            if (ehvalido)
+            {
+                List<Comparacao> resultado = CompararArquivosFake();
+
+                dgvFiles.DataSource = resultado;
+            }
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -237,9 +244,9 @@ namespace CsvCompare
         {
             try
             {
-            values1 = File.ReadAllLines(filePath)
-                                           .Select(v => Arquivo.FromCsv(v))
-                                           .ToList();
+                values1 = File.ReadAllLines(filePath)
+                                               .Select(v => Arquivo.FromCsv(v))
+                                               .ToList();
             }
             catch (Exception)
             {
@@ -251,10 +258,10 @@ namespace CsvCompare
         {
             try
             {
-            values2 = File.ReadAllLines(filePath)
-                                           .Skip(1)
-                                           .Select(v => Arquivo.FromCsv(v))
-                                           .ToList();
+                values2 = File.ReadAllLines(filePath)
+                                               .Skip(1)
+                                               .Select(v => Arquivo.FromCsv(v))
+                                               .ToList();
             }
             catch (Exception)
             {
@@ -276,6 +283,24 @@ namespace CsvCompare
             return resultado;
         }
 
+        private void LimparDatagrid()
+        {
+            dgvFiles.Columns.Clear();
+            dgvFiles.Refresh();
+        }
+
+        private bool ValidarInformacoes()
+        {
+            bool ehvalido = true;
+
+            if (txtFile1.Text == txtFile2.Text)
+            {
+                ehvalido = false;
+                MessageBox.Show("Você escolheu o mesmo arquivo para comparar. Selecione novamente 2 arquivos diferentes");
+            }
+
+            return ehvalido;
+        }
         #endregion
 
     }
