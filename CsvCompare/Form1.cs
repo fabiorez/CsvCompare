@@ -11,8 +11,8 @@ namespace CsvCompare
     public partial class Form1 : Form
     {
         #region variaveis globais
-        List<Arquivo> values1 = new List<Arquivo>();
-        List<Arquivo> values2 = new List<Arquivo>();
+        List<ArquivoSefaz> valuesSefaz = new List<ArquivoSefaz>();
+        List<ArquivoEscritura> valuesEscritura = new List<ArquivoEscritura>();
         #endregion
 
         #region Formulario
@@ -31,132 +31,69 @@ namespace CsvCompare
 
         #region Classes
 
-        class Arquivo
+        class ArquivoSefaz
         {
-            string colA;
-            string colB;
-            string colC;
-            string colD;
-            string colE;
-            string colF;
-            string colG;
-            string colH;
-            string colI;
-            string colJ;
-            string colK;
-            string colL;
-            string colM;
-            string colN;
-            string colO;
-            string colP;
-            string colQ;
-            string colR;
-            string colS;
-            string colT;
-            string colU;
-            string colV;
-            string colW;
-            string colX;
-            string colY;
-            string colZ;
-            string colAA;
-            string colAB;
-            string colAC;
-            string colAD;
-            string colAE;
-            string colAF;
-            string colAG;
-            string colAH;
-            string colAI;
-            string colAJ;
-            string colAK;
-            string colAL;
-            string colAM;
-            string colAN;
-            string colAO;
-            string colAP;
-            string colAQ;
-            string colAR;
-            string colAS;
-            string colAT;
-            string colAU;
-            string colAV;
-            string colAW;
-            string colAX;
-            string colAY;
-            string colAZ;
+            public string SefazNota { get; set; }
+            public string SefazSerie { get; set; }
+            public string SefazCnpj { get; set; }
+            public string SefazValor { get; set; }
 
-            public static Arquivo FromCsv(string csvLine)
+            public static ArquivoSefaz FromCsv(string csvLine)
             {
                 string[] values = csvLine.Split(';');
+
+                if (!string.IsNullOrEmpty(values[0]))
+                {
+                    if (!values[0].Contains("/"))
+                    {
+                        if (values.Count() > 2)
+                        {
+                            ArquivoSefaz arquivo = new ArquivoSefaz();
+                            arquivo.SefazNota = values[0].ToString();
+                            arquivo.SefazSerie = values[1].ToString();
+                            arquivo.SefazCnpj = values[3].ToString();
+                            if (values.Count() > 29)
+                            {
+                                arquivo.SefazValor = values[29].Replace(".","");
+                            }
+                            else
+                            {
+                                arquivo.SefazValor = "0";
+                            }
+                            return arquivo;
+                        }
+                    }
+                }
+                return null;
+            }
+        }
+
+        class ArquivoEscritura
+        {
+            public string EscrituraCnpj { get; set; }
+            public string EscrituraNota { get; set; }
+            public string EscrituraSerie { get; set; }
+            public string EscrituraValor { get; set; }
+
+            public static ArquivoEscritura FromCsv(string csvLine)
+            {
+                string[] values = csvLine.Split(',');
                 if (values.Count() > 2)
                 {
-                    Arquivo arquivo = new Arquivo();
-                    arquivo.colA = values[0].ToString();
-                    arquivo.colB = values[1].ToString();
-                    arquivo.colC = values[2].ToString();
-                    arquivo.colD = values[3].ToString();
-                    arquivo.colE = values[4].ToString();
-                    arquivo.colF = values[5].ToString();
-                    arquivo.colF = values[6].ToString();
-                    arquivo.colG = values[7].ToString();
-                    arquivo.colH = values[8].ToString();
-                    arquivo.colI = values[9].ToString();
-                    arquivo.colJ = values[10].ToString();
-                    arquivo.colK = values[11].ToString();
-                    arquivo.colL = values[12].ToString();
-                    arquivo.colM = values[13].ToString();
-                    arquivo.colN = values[14].ToString();
-                    arquivo.colO = values[15].ToString();
-                    arquivo.colP = values[16].ToString();
-                    arquivo.colQ = values[17].ToString();
-                    arquivo.colR = values[18].ToString();
-                    if (values.Count() > 19)
+                    ArquivoEscritura arquivo = new ArquivoEscritura();
+                    arquivo.EscrituraNota = values[2].ToString();
+                    arquivo.EscrituraSerie = values[3].ToString();
+                    arquivo.EscrituraValor = values[9].ToString() + "," + values[10].ToString();
+                    if (values.Count() > 25)
                     {
-                        arquivo.colS = values[19].ToString();
-                        arquivo.colT = values[20].ToString();
-                        arquivo.colU = values[21].ToString();
-                        arquivo.colV = values[22].ToString();
-                        arquivo.colW = values[23].ToString();
-                        arquivo.colX = values[24].ToString();
-                        arquivo.colY = values[24].ToString();
-                        arquivo.colZ = values[24].ToString();
-                        arquivo.colAA = values[25].ToString();
-                        arquivo.colAB = values[26].ToString();
-                        arquivo.colAC = values[27].ToString();
-                        arquivo.colAD = values[28].ToString();
-                        arquivo.colAE = values[29].ToString();
-                        arquivo.colAF = values[30].ToString();
-                        arquivo.colAG = values[31].ToString();
-                        arquivo.colAH = values[32].ToString();
-                        if (values.Count() > 32)
-                        {
-                            if (values.Count() > 33)
-                            {
-                                arquivo.colAI = values[33].ToString();
-                                arquivo.colAJ = values[34].ToString();
-                                arquivo.colAK = values[35].ToString();
-                                arquivo.colAL = values[36].ToString();
-                                arquivo.colAM = values[37].ToString();
-                                arquivo.colAN = values[38].ToString();
-                                arquivo.colAO = values[39].ToString();
-                                arquivo.colAP = values[40].ToString();
-                                arquivo.colAQ = values[41].ToString();
-                                arquivo.colAR = values[42].ToString();
-                                arquivo.colAS = values[43].ToString();
-                                arquivo.colAT = values[44].ToString();
-                                arquivo.colAU = values[45].ToString();
-                                arquivo.colAV = values[46].ToString();
-                                arquivo.colAW = values[47].ToString();
-                                arquivo.colAX = values[48].ToString();
-                                arquivo.colAY = values[49].ToString();
-                                arquivo.colAZ = values[50].ToString();
-                            }
-                        }
+                        arquivo.EscrituraCnpj = values[25].ToString();
+                    }
+                    else
+                    {
+                        arquivo.EscrituraCnpj = "sem cnpj";
                     }
                     return arquivo;
                 }
-
                 return null;
             }
         }
@@ -164,9 +101,9 @@ namespace CsvCompare
         class Comparacao
         {
             public string Cnpj { get; set; }
-            public string Id { get; set; }
-            public string Valor1 { get; set; }
-            public string Valor2 { get; set; }
+            public string Nota { get; set; }
+            public string ValorSefaz { get; set; }
+            public string ValorEscritura { get; set; }
             public string Resultado { get; set; }
 
             public Comparacao()
@@ -174,12 +111,12 @@ namespace CsvCompare
 
             }
 
-            public Comparacao(string cnpj, string id, string valor1, string valor2, string resultado)
+            public Comparacao(string cnpj, string nota, string valorSefaz, string valorEscritura, string resultado)
             {
                 Cnpj = cnpj;
-                Id = id;
-                Valor1 = valor1;
-                Valor2 = valor2;
+                Nota = nota;
+                ValorSefaz = valorSefaz;
+                ValorEscritura = valorEscritura;
                 Resultado = resultado;
             }
 
@@ -193,14 +130,28 @@ namespace CsvCompare
         {
             openFileDialog1.ShowDialog();
             txtFile1.Text = openFileDialog1.FileName;
-            CarregaArquivo(txtFile1.Text);
+            if (txtFile1.Text.Contains("RECEBIMENTO"))
+            {
+                CarregaArquivoSefaz(txtFile1.Text);
+            }
+            else
+            {
+                CarregaArquivoEscritura(txtFile1.Text);
+            }
         }
 
         private void BtnFile2_Click(object sender, EventArgs e)
         {
             openFileDialog2.ShowDialog();
             txtFile2.Text = openFileDialog2.FileName;
-            CarregaArquivo2(txtFile2.Text);
+            if (txtFile2.Text.Contains("RECEBIMENTO"))
+            {
+                CarregaArquivoSefaz(txtFile2.Text);
+            }
+            else
+            {
+                CarregaArquivoEscritura(txtFile2.Text);
+            }
         }
 
         private void BtnCompare_Click(object sender, EventArgs e)
@@ -210,12 +161,11 @@ namespace CsvCompare
 
             if (ehvalido)
             {
-                List<Comparacao> resultado = CompararArquivosFake();
+                List<Comparacao> resultado = CompararArquivos();
 
                 dgvFiles.DataSource = resultado;
             }
         }
-
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -237,15 +187,15 @@ namespace CsvCompare
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;            
         }
 
-        private void CarregaArquivo(string filePath)
+        private void CarregaArquivoEscritura(string filePath)
         {
             try
             {
-                values1 = File.ReadAllLines(filePath)
-                                               .Select(v => Arquivo.FromCsv(v))
+                valuesEscritura = File.ReadAllLines(filePath)
+                                               .Select(v => ArquivoEscritura.FromCsv(v))
                                                .ToList();
             }
             catch (Exception)
@@ -254,33 +204,28 @@ namespace CsvCompare
             }
         }
 
-        private void CarregaArquivo2(string filePath)
+        private void CarregaArquivoSefaz(string filePath)
         {
             try
             {
-                values2 = File.ReadAllLines(filePath)
+                valuesSefaz = File.ReadAllLines(filePath)
                                                .Skip(1)
-                                               .Select(v => Arquivo.FromCsv(v))
+                                               .Select(v => ArquivoSefaz.FromCsv(v))
                                                .ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
             }
         }
-
-        private List<Comparacao> CompararArquivosFake()
+        
+        private List<Comparacao> CompararArquivos()
         {
-            //precisa implementar
-            var teste = values1;
-            var tst = values2;
             List<Comparacao> resultado = new List<Comparacao>();
-            resultado.Add(new Comparacao("1234", "1", "25,42", "26,42", "Valor Divergente"));
-            resultado.Add(new Comparacao("1235", "2", "28", "", "Nao encontrado"));
-            resultado.Add(new Comparacao("1236", "3", "150", "", "Nao encontrado"));
-            resultado.Add(new Comparacao("1237", "4", "30,25", "26,42", "Valor Divergente"));
+            VerificaNotaInexistente(resultado);
+            VerificaValoresDivergentes(resultado);
 
-            return resultado;
+            return resultado.OrderBy(x => x.Resultado).ThenBy(y => y.Nota).ToList();
         }
 
         private void LimparDatagrid()
@@ -301,6 +246,74 @@ namespace CsvCompare
 
             return ehvalido;
         }
+
+        private void VerificaNotaInexistente(List<Comparacao> resultado)
+        {
+            List<ArquivoSefaz> listaRemovidos = new List<ArquivoSefaz>();
+
+            foreach (ArquivoSefaz sefaz in valuesSefaz)
+            {
+                if (sefaz != null && !string.IsNullOrEmpty(sefaz.SefazCnpj))
+                {
+                    bool ehInexistente = true;
+
+                    foreach (var escritura in valuesEscritura)
+                    {
+                        string notaSefaz = sefaz.SefazNota + sefaz.SefazSerie;
+                        string notaEscritura = escritura.EscrituraNota + escritura.EscrituraSerie;
+
+                        if (notaSefaz == notaEscritura)
+                        {
+                            ehInexistente = false;
+                        }
+                    }
+
+                    if (ehInexistente)
+                    {
+                        resultado.Add(new Comparacao(sefaz.SefazCnpj, sefaz.SefazNota + "-" + sefaz.SefazSerie, sefaz.SefazValor, "", "Nota Inexistente"));
+                        listaRemovidos.Add(sefaz);
+                    }
+                }
+            }
+
+            valuesSefaz.RemoveAll(i => listaRemovidos.Contains(i));
+        }
+
+        private void VerificaValoresDivergentes(List<Comparacao> resultado)
+        {
+            foreach (ArquivoSefaz sefaz in valuesSefaz)
+            {
+                if (sefaz != null && !string.IsNullOrEmpty(sefaz.SefazCnpj))
+                {
+                    bool ehDiferente = true;
+                    string valorEscritura = "";
+
+                    foreach (var escritura in valuesEscritura)
+                    {
+                        string notaSefaz = sefaz.SefazNota + sefaz.SefazSerie;
+                        string notaEscritura = escritura.EscrituraNota + escritura.EscrituraSerie;
+
+                        if (notaSefaz == notaEscritura)
+                        {
+                            if(Convert.ToDecimal(sefaz.SefazValor) == Convert.ToDecimal(escritura.EscrituraValor))
+                            {
+                                ehDiferente = false;                                
+                            }
+                            else
+                            {
+                                valorEscritura = escritura.EscrituraValor;
+                            }
+                        }
+                    }
+
+                    if (ehDiferente)
+                    {
+                        resultado.Add(new Comparacao(sefaz.SefazCnpj, sefaz.SefazNota + "-" + sefaz.SefazSerie, sefaz.SefazValor, valorEscritura, "Divergencia de valor"));
+                    }
+                }
+            }
+        }
+        
         #endregion
 
     }
