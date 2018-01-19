@@ -213,7 +213,7 @@ namespace CsvCompare
                                                .Select(v => ArquivoSefaz.FromCsv(v))
                                                .ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
             }
