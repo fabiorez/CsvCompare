@@ -54,7 +54,7 @@ namespace CsvCompare
                             arquivo.SefazCnpj = values[3].ToString();
                             if (values.Count() > 29)
                             {
-                                arquivo.SefazValor = values[29].Replace(".","");
+                                arquivo.SefazValor = values[29].Replace(".", "");
                             }
                             else
                             {
@@ -129,29 +129,15 @@ namespace CsvCompare
         private void Button1_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-            txtFile1.Text = openFileDialog1.FileName;
-            if (txtFile1.Text.Contains("RECEBIMENTO"))
-            {
-                CarregaArquivoSefaz(txtFile1.Text);
-            }
-            else
-            {
-                CarregaArquivoEscritura(txtFile1.Text);
-            }
+            txtSefaz.Text = openFileDialog1.FileName;
+            CarregaArquivoSefaz(txtSefaz.Text);
         }
 
         private void BtnFile2_Click(object sender, EventArgs e)
         {
             openFileDialog2.ShowDialog();
-            txtFile2.Text = openFileDialog2.FileName;
-            if (txtFile2.Text.Contains("RECEBIMENTO"))
-            {
-                CarregaArquivoSefaz(txtFile2.Text);
-            }
-            else
-            {
-                CarregaArquivoEscritura(txtFile2.Text);
-            }
+            txtSe.Text = openFileDialog2.FileName;
+            CarregaArquivoEscritura(txtSe.Text);
         }
 
         private void BtnCompare_Click(object sender, EventArgs e)
@@ -187,7 +173,7 @@ namespace CsvCompare
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;            
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
 
         private void CarregaArquivoEscritura(string filePath)
@@ -201,6 +187,7 @@ namespace CsvCompare
             catch (Exception)
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
+                txtSe.Text = "";
             }
         }
 
@@ -216,9 +203,10 @@ namespace CsvCompare
             catch (Exception)
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
+                txtSefaz.Text = "";
             }
         }
-        
+
         private List<Comparacao> CompararArquivos()
         {
             List<Comparacao> resultado = new List<Comparacao>();
@@ -238,7 +226,7 @@ namespace CsvCompare
         {
             bool ehvalido = true;
 
-            if (txtFile1.Text == txtFile2.Text)
+            if (txtSefaz.Text == txtSe.Text)
             {
                 ehvalido = false;
                 MessageBox.Show("Você escolheu o mesmo arquivo para comparar. Selecione novamente 2 arquivos diferentes");
@@ -295,9 +283,9 @@ namespace CsvCompare
 
                         if (notaSefaz == notaEscritura)
                         {
-                            if(Convert.ToDecimal(sefaz.SefazValor) == Convert.ToDecimal(escritura.EscrituraValor))
+                            if (Convert.ToDecimal(sefaz.SefazValor) == Convert.ToDecimal(escritura.EscrituraValor))
                             {
-                                ehDiferente = false;                                
+                                ehDiferente = false;
                             }
                             else
                             {
@@ -313,8 +301,12 @@ namespace CsvCompare
                 }
             }
         }
-        
+
         #endregion
 
+        private void txtSe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

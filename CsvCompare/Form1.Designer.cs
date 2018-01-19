@@ -34,13 +34,13 @@
             this.btnFile2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.txtFile1 = new System.Windows.Forms.TextBox();
-            this.txtFile2 = new System.Windows.Forms.TextBox();
+            this.txtSe = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCompare = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.txtSefaz = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -88,21 +88,14 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // txtFile1
+            // txtSe
             // 
-            this.txtFile1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFile1.Location = new System.Drawing.Point(25, 67);
-            this.txtFile1.Name = "txtFile1";
-            this.txtFile1.Size = new System.Drawing.Size(582, 27);
-            this.txtFile1.TabIndex = 3;
-            // 
-            // txtFile2
-            // 
-            this.txtFile2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFile2.Location = new System.Drawing.Point(25, 103);
-            this.txtFile2.Name = "txtFile2";
-            this.txtFile2.Size = new System.Drawing.Size(582, 27);
-            this.txtFile2.TabIndex = 4;
+            this.txtSe.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSe.Location = new System.Drawing.Point(25, 103);
+            this.txtSe.Name = "txtSe";
+            this.txtSe.Size = new System.Drawing.Size(582, 27);
+            this.txtSe.TabIndex = 4;
+            this.txtSe.TextChanged += new System.EventHandler(this.txtSe_TextChanged);
             // 
             // label1
             // 
@@ -163,19 +156,27 @@
             this.button2.Text = "CSV SE";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // txtSefaz
+            // 
+            this.txtSefaz.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSefaz.Location = new System.Drawing.Point(25, 67);
+            this.txtSefaz.Name = "txtSefaz";
+            this.txtSefaz.Size = new System.Drawing.Size(582, 27);
+            this.txtSefaz.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(758, 454);
+            this.Controls.Add(this.txtSefaz);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.btnCompare);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtFile2);
-            this.Controls.Add(this.txtFile1);
+            this.Controls.Add(this.txtSe);
             this.Controls.Add(this.btnFile2);
             this.Controls.Add(this.btnFile1);
             this.Controls.Add(this.dgvFiles);
@@ -198,13 +199,13 @@
         private System.Windows.Forms.Button btnFile2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
-        private System.Windows.Forms.TextBox txtFile1;
-        private System.Windows.Forms.TextBox txtFile2;
+        private System.Windows.Forms.TextBox txtSe;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCompare;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtSefaz;
     }
 }
 
