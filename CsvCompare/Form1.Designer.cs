@@ -41,6 +41,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtSefaz = new System.Windows.Forms.TextBox();
+            this.lblInexistentes = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblDivergentes = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -164,12 +168,60 @@
             this.txtSefaz.Size = new System.Drawing.Size(582, 27);
             this.txtSefaz.TabIndex = 10;
             // 
+            // lblInexistentes
+            // 
+            this.lblInexistentes.AutoSize = true;
+            this.lblInexistentes.BackColor = System.Drawing.Color.Transparent;
+            this.lblInexistentes.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInexistentes.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblInexistentes.Location = new System.Drawing.Point(22, 411);
+            this.lblInexistentes.Name = "lblInexistentes";
+            this.lblInexistentes.Size = new System.Drawing.Size(29, 33);
+            this.lblInexistentes.TabIndex = 11;
+            this.lblInexistentes.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(69, 425);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 17);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "notas inexistentes";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblDivergentes
+            // 
+            this.lblDivergentes.AutoSize = true;
+            this.lblDivergentes.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDivergentes.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblDivergentes.Location = new System.Drawing.Point(196, 412);
+            this.lblDivergentes.Name = "lblDivergentes";
+            this.lblDivergentes.Size = new System.Drawing.Size(29, 33);
+            this.lblDivergentes.TabIndex = 13;
+            this.lblDivergentes.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(220, 425);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 17);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "valores divergentes";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(758, 454);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblDivergentes);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblInexistentes);
             this.Controls.Add(this.txtSefaz);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -206,6 +258,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtSefaz;
+        private System.Windows.Forms.Label lblInexistentes;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDivergentes;
+        private System.Windows.Forms.Label label3;
     }
 }
 

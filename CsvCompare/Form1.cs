@@ -262,6 +262,7 @@ namespace CsvCompare
                         listaRemovidos.Add(sefaz);
                     }
                 }
+                lblInexistentes.Text = resultado.Count().ToString();
             }
 
             valuesSefaz.RemoveAll(i => listaRemovidos.Contains(i));
@@ -269,6 +270,8 @@ namespace CsvCompare
 
         private void VerificaValoresDivergentes(List<Comparacao> resultado)
         {
+            int qtdeDivergentes = 0;
+
             foreach (ArquivoSefaz sefaz in valuesSefaz)
             {
                 if (sefaz != null && !string.IsNullOrEmpty(sefaz.SefazCnpj))
@@ -297,14 +300,22 @@ namespace CsvCompare
                     if (ehDiferente)
                     {
                         resultado.Add(new Comparacao(sefaz.SefazCnpj, sefaz.SefazNota + "-" + sefaz.SefazSerie, sefaz.SefazValor, valorEscritura, "Divergencia de valor"));
+                        qtdeDivergentes++;
                     }
                 }
             }
+
+            lblDivergentes.Text = qtdeDivergentes.ToString();
         }
 
         #endregion
 
         private void txtSe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
