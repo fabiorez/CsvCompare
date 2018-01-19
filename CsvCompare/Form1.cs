@@ -158,6 +158,15 @@ namespace CsvCompare
             this.Close();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Não implementado");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Não implementado");
+        }
         #endregion
 
         #region Metodos de Apoio
@@ -310,14 +319,5 @@ namespace CsvCompare
 
         #endregion
 
-        private void txtSe_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

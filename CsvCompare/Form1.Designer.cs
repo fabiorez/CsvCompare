@@ -99,7 +99,6 @@
             this.txtSe.Name = "txtSe";
             this.txtSe.Size = new System.Drawing.Size(582, 27);
             this.txtSe.TabIndex = 4;
-            this.txtSe.TextChanged += new System.EventHandler(this.txtSe_TextChanged);
             // 
             // label1
             // 
@@ -145,8 +144,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 27);
             this.button1.TabIndex = 8;
-            this.button1.Text = "CSV SE";
+            this.button1.Text = "AJUSTAR VALOR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
@@ -157,8 +157,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(123, 27);
             this.button2.TabIndex = 9;
-            this.button2.Text = "CSV SE";
+            this.button2.Text = "ADICIONAR";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtSefaz
             // 
@@ -189,7 +190,6 @@
             this.label2.Size = new System.Drawing.Size(109, 17);
             this.label2.TabIndex = 12;
             this.label2.Text = "notas inexistentes";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblDivergentes
             // 
