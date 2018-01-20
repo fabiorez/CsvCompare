@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dgvFiles = new System.Windows.Forms.DataGridView();
-            this.btnFile2 = new System.Windows.Forms.Button();
+            this.btnSe = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.txtSe = new System.Windows.Forms.TextBox();
@@ -49,12 +49,12 @@
             this.lblTotalCsv = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lblTotalXls = new System.Windows.Forms.Label();
-            this.btnFile1 = new System.Windows.Forms.Button();
+            this.btnSefaz = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,18 +76,18 @@
             this.dgvFiles.Size = new System.Drawing.Size(711, 235);
             this.dgvFiles.TabIndex = 0;
             // 
-            // btnFile2
+            // btnSe
             // 
-            this.btnFile2.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.btnFile2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFile2.ForeColor = System.Drawing.Color.Black;
-            this.btnFile2.Location = new System.Drawing.Point(451, 58);
-            this.btnFile2.Name = "btnFile2";
-            this.btnFile2.Size = new System.Drawing.Size(111, 28);
-            this.btnFile2.TabIndex = 2;
-            this.btnFile2.Text = "CSV SE";
-            this.btnFile2.UseVisualStyleBackColor = false;
-            this.btnFile2.Click += new System.EventHandler(this.BtnFile2_Click);
+            this.btnSe.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btnSe.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSe.ForeColor = System.Drawing.Color.Black;
+            this.btnSe.Location = new System.Drawing.Point(451, 58);
+            this.btnSe.Name = "btnSe";
+            this.btnSe.Size = new System.Drawing.Size(111, 28);
+            this.btnSe.TabIndex = 2;
+            this.btnSe.Text = "CSV SE";
+            this.btnSe.UseVisualStyleBackColor = false;
+            this.btnSe.Click += new System.EventHandler(this.BtnSe_Click);
             // 
             // openFileDialog1
             // 
@@ -199,9 +199,9 @@
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.txtSefaz);
-            this.groupBox3.Controls.Add(this.btnFile1);
+            this.groupBox3.Controls.Add(this.btnSefaz);
             this.groupBox3.Controls.Add(this.txtSe);
-            this.groupBox3.Controls.Add(this.btnFile2);
+            this.groupBox3.Controls.Add(this.btnSe);
             this.groupBox3.Location = new System.Drawing.Point(25, 64);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(711, 100);
@@ -273,19 +273,19 @@
             this.lblTotalXls.TabIndex = 11;
             this.lblTotalXls.Text = "0";
             // 
-            // btnFile1
+            // btnSefaz
             // 
-            this.btnFile1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.btnFile1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFile1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFile1.ForeColor = System.Drawing.Color.Black;
-            this.btnFile1.Location = new System.Drawing.Point(452, 19);
-            this.btnFile1.Name = "btnFile1";
-            this.btnFile1.Size = new System.Drawing.Size(111, 27);
-            this.btnFile1.TabIndex = 1;
-            this.btnFile1.Text = "XLS SEFAZ";
-            this.btnFile1.UseVisualStyleBackColor = false;
-            this.btnFile1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnSefaz.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btnSefaz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSefaz.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSefaz.ForeColor = System.Drawing.Color.Black;
+            this.btnSefaz.Location = new System.Drawing.Point(452, 19);
+            this.btnSefaz.Name = "btnSefaz";
+            this.btnSefaz.Size = new System.Drawing.Size(111, 27);
+            this.btnSefaz.TabIndex = 1;
+            this.btnSefaz.Text = "XLS SEFAZ";
+            this.btnSefaz.UseVisualStyleBackColor = false;
+            this.btnSefaz.Click += new System.EventHandler(this.BtnSefaz_Click);
             // 
             // menuStrip1
             // 
@@ -327,16 +327,16 @@
             this.checkBox1.Text = "Inexistentes";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnExportar
             // 
-            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(495, 417);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "EXPORTAR";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.btnExportar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.Location = new System.Drawing.Point(495, 417);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 33);
+            this.btnExportar.TabIndex = 22;
+            this.btnExportar.Text = "EXPORTAR";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // Form1
             // 
@@ -344,7 +344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(758, 461);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -383,7 +383,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvFiles;
-        private System.Windows.Forms.Button btnFile2;
+        private System.Windows.Forms.Button btnSe;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.TextBox txtSe;
@@ -400,12 +400,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label lblTotalCsv;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label lblTotalXls;
-        private System.Windows.Forms.Button btnFile1;
+        private System.Windows.Forms.Button btnSefaz;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

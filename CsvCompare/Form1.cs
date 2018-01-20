@@ -126,14 +126,14 @@ namespace CsvCompare
 
         #region botoes
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnSefaz_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
             txtSefaz.Text = openFileDialog1.FileName;
             CarregaArquivoSefaz(txtSefaz.Text);
         }
 
-        private void BtnFile2_Click(object sender, EventArgs e)
+        private void BtnSe_Click(object sender, EventArgs e)
         {
             openFileDialog2.ShowDialog();
             txtSe.Text = openFileDialog2.FileName;
@@ -168,17 +168,7 @@ namespace CsvCompare
             this.Close();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Não implementado");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Não implementado");
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
+        private void btnExportar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Funcionalidade Não Implementada");
         }
