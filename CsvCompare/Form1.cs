@@ -154,12 +154,13 @@ namespace CsvCompare
                 List<Comparacao> resultado = CompararArquivos();
 
                 dgvFiles.DataSource = resultado;
-            }           
+
+                AjustarNomeColunas();
+            }
 
             btnCompare.Text = "Compare";
             btnCompare.Enabled = true;
 
-            AjustarNomeColunas();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -206,7 +207,7 @@ namespace CsvCompare
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;            
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
 
         private void CarregaArquivoEscritura(string filePath)
@@ -259,7 +260,7 @@ namespace CsvCompare
         {
             bool ehvalido = true;
 
-            if(txtSefaz.Text == "" || txtSe.Text == "")
+            if (txtSefaz.Text == "" || txtSe.Text == "")
             {
                 ehvalido = false;
                 MessageBox.Show("Favor selecionar os dois arquivos para que possa ser feita a comparação");
@@ -269,6 +270,16 @@ namespace CsvCompare
             {
                 ehvalido = false;
                 MessageBox.Show("Você escolheu o mesmo arquivo para comparar. Selecione novamente 2 arquivos diferentes");
+            }
+            else if (!txtSefaz.Text.Contains("RECEBIMENTO_NFE"))
+            {
+                ehvalido = false;
+                MessageBox.Show("Arquivo do sefaz inválido.");
+            }
+            else if (!txtSe.Text.Contains("DW_NFE"))
+            {
+                ehvalido = false;
+                MessageBox.Show("Arquivo Escritura inválido");
             }
 
             return ehvalido;
