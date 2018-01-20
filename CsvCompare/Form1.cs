@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CsvCompare
 {
@@ -130,22 +131,27 @@ namespace CsvCompare
         {
             openFileDialog1.ShowDialog();
             txtSefaz.Text = openFileDialog1.FileName;
+            LimparDatagrid();
+            BloqueiaAplicacao();
             CarregaArquivoSefaz(txtSefaz.Text);
+            DesbloqueiaAplicacao();
         }
 
         private void BtnSe_Click(object sender, EventArgs e)
         {
             openFileDialog2.ShowDialog();
             txtSe.Text = openFileDialog2.FileName;
+            LimparDatagrid();
+            BloqueiaAplicacao();
             CarregaArquivoEscritura(txtSe.Text);
+            DesbloqueiaAplicacao();
         }
 
         private void BtnCompare_Click(object sender, EventArgs e)
         {
             LimparDatagrid();
 
-            btnCompare.Text = "Aguarde";
-            btnCompare.Enabled = false;
+            BloqueiaAplicacao();
 
             bool ehvalido = ValidarInformacoes();
 
@@ -158,17 +164,11 @@ namespace CsvCompare
                 AjustarNomeColunas();
             }
 
-            btnCompare.Text = "Compare";
-            btnCompare.Enabled = true;
+            DesbloqueiaAplicacao();
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnExportar_Click(object sender, EventArgs e)
+        private void BtnExportar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Funcionalidade Não Implementada");
         }
@@ -200,6 +200,15 @@ namespace CsvCompare
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
 
+        private void BloqueiaAplicacao()
+        {
+            btnSefaz.Enabled = false;
+            btnExportar.Enabled = false;
+            btnCompare.Enabled = false;
+            btnSe.Enabled = false;
+            lblAguarde.Visible = true;
+        }
+
         private void CarregaArquivoEscritura(string filePath)
         {
             try
@@ -219,15 +228,30 @@ namespace CsvCompare
 
         private void CarregaArquivoSefaz(string filePath)
         {
+            valuesSefaz.Clear();
+
             try
             {
-                valuesSefaz = File.ReadAllLines(filePath)
-                                               .Skip(1)
-                                               .Select(v => ArquivoSefaz.FromCsv(v))
-                                               .ToList();
+                Excel.Application application = new Excel.Application();
+                Excel.Workbook workbook = application.Workbooks.Open(filePath);
+                Excel.Worksheet worksheet = workbook.ActiveSheet;
+                Excel.Range range = worksheet.UsedRange;
+
+
+                for (int row = 2; row <= range.Rows.Count; row++)
+                {
+                    ArquivoSefaz sefaz = new ArquivoSefaz();
+                    sefaz.SefazNota = ((Excel.Range)range.Cells[row, 1]).Text;
+                    sefaz.SefazSerie = ((Excel.Range)range.Cells[row, 2]).Text;
+                    sefaz.SefazCnpj = ((Excel.Range)range.Cells[row, 4]).Text;
+                    sefaz.SefazValor = (((Excel.Range)range.Cells[row, 30]).Text).ToString().Replace(".", "");
+
+                    valuesSefaz.Add(sefaz);
+                }
+
                 lblTotalXls.Text = valuesSefaz.Count().ToString();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
                 txtSefaz.Text = "";
@@ -241,6 +265,15 @@ namespace CsvCompare
             VerificaValoresDivergentes(resultado);
 
             return resultado.OrderBy(x => x.Resultado).ThenBy(y => y.Nota).ToList();
+        }
+
+        private void DesbloqueiaAplicacao()
+        {
+            btnSefaz.Enabled = true;
+            btnExportar.Enabled = true;
+            btnCompare.Enabled = true;
+            btnSe.Enabled = true;
+            lblAguarde.Visible = false;
         }
 
         private void LimparDatagrid()

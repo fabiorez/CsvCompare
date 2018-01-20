@@ -55,6 +55,7 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.lblAguarde = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -336,7 +337,19 @@
             this.btnExportar.TabIndex = 22;
             this.btnExportar.Text = "EXPORTAR";
             this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            this.btnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
+            // 
+            // lblAguarde
+            // 
+            this.lblAguarde.AutoSize = true;
+            this.lblAguarde.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAguarde.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblAguarde.Location = new System.Drawing.Point(172, 265);
+            this.lblAguarde.Name = "lblAguarde";
+            this.lblAguarde.Size = new System.Drawing.Size(398, 39);
+            this.lblAguarde.TabIndex = 23;
+            this.lblAguarde.Text = "AGUARDE UM MOMENTO ...";
+            this.lblAguarde.Visible = false;
             // 
             // Form1
             // 
@@ -344,6 +357,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(758, 461);
+            this.Controls.Add(this.lblAguarde);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -408,6 +422,7 @@
         private System.Windows.Forms.Button btnSefaz;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblAguarde;
     }
 }
 
