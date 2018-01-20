@@ -217,6 +217,8 @@ namespace CsvCompare
                 valuesEscritura = File.ReadAllLines(filePath)
                                                .Select(v => ArquivoEscritura.FromCsv(v))
                                                .ToList();
+
+                lblTotalCsv.Text = valuesEscritura.Count().ToString();
             }
             catch (Exception)
             {
@@ -233,6 +235,7 @@ namespace CsvCompare
                                                .Skip(1)
                                                .Select(v => ArquivoSefaz.FromCsv(v))
                                                .ToList();
+                lblTotalXls.Text = valuesSefaz.Count().ToString();
             }
             catch (Exception)
             {
@@ -359,6 +362,5 @@ namespace CsvCompare
         }
 
         #endregion
-
     }
 }

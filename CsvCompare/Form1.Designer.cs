@@ -43,28 +43,28 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotalCsv = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalXls = new System.Windows.Forms.Label();
+            this.btnFile1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnFile1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvFiles
@@ -209,9 +209,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Arquivos";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(535, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(534, 61);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 22);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Controls.Add(this.lblTotalCsv);
             this.groupBox6.Location = new System.Drawing.Point(582, 52);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(123, 33);
@@ -219,21 +239,21 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Total de Linhas CSV";
             // 
-            // label3
+            // lblTotalCsv
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label3.Location = new System.Drawing.Point(6, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 23);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "0";
+            this.lblTotalCsv.AutoSize = true;
+            this.lblTotalCsv.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalCsv.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCsv.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblTotalCsv.Location = new System.Drawing.Point(6, 8);
+            this.lblTotalCsv.Name = "lblTotalCsv";
+            this.lblTotalCsv.Size = new System.Drawing.Size(20, 23);
+            this.lblTotalCsv.TabIndex = 11;
+            this.lblTotalCsv.Text = "0";
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.lblTotalXls);
             this.groupBox5.Location = new System.Drawing.Point(582, 14);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(123, 33);
@@ -241,17 +261,31 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Total de Linhas XLS";
             // 
-            // label2
+            // lblTotalXls
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label2.Location = new System.Drawing.Point(6, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 23);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "0";
+            this.lblTotalXls.AutoSize = true;
+            this.lblTotalXls.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalXls.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalXls.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblTotalXls.Location = new System.Drawing.Point(6, 8);
+            this.lblTotalXls.Name = "lblTotalXls";
+            this.lblTotalXls.Size = new System.Drawing.Size(20, 23);
+            this.lblTotalXls.TabIndex = 11;
+            this.lblTotalXls.Text = "0";
+            // 
+            // btnFile1
+            // 
+            this.btnFile1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btnFile1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFile1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFile1.ForeColor = System.Drawing.Color.Black;
+            this.btnFile1.Location = new System.Drawing.Point(452, 19);
+            this.btnFile1.Name = "btnFile1";
+            this.btnFile1.Size = new System.Drawing.Size(111, 27);
+            this.btnFile1.TabIndex = 1;
+            this.btnFile1.Text = "XLS SEFAZ";
+            this.btnFile1.UseVisualStyleBackColor = false;
+            this.btnFile1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // menuStrip1
             // 
@@ -304,40 +338,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // btnFile1
-            // 
-            this.btnFile1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.btnFile1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFile1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFile1.ForeColor = System.Drawing.Color.Black;
-            this.btnFile1.Location = new System.Drawing.Point(452, 19);
-            this.btnFile1.Name = "btnFile1";
-            this.btnFile1.Size = new System.Drawing.Size(111, 27);
-            this.btnFile1.TabIndex = 1;
-            this.btnFile1.Text = "XLS SEFAZ";
-            this.btnFile1.UseVisualStyleBackColor = false;
-            this.btnFile1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(534, 61);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(26, 22);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(535, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 22);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,14 +367,14 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,9 +402,9 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotalCsv;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotalXls;
         private System.Windows.Forms.Button btnFile1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
