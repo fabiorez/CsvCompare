@@ -132,9 +132,12 @@ namespace CsvCompare
             openFileDialog1.ShowDialog();
             txtSefaz.Text = openFileDialog1.FileName;
             LimparDatagrid();
-            BloqueiaAplicacao();
-            CarregaArquivoSefaz(txtSefaz.Text);
-            DesbloqueiaAplicacao();
+            if (ValidaSefaz())
+            {
+                BloqueiaAplicacao();
+                CarregaArquivoSefaz(txtSefaz.Text);
+                DesbloqueiaAplicacao();
+            }
         }
 
         private void BtnSe_Click(object sender, EventArgs e)
@@ -142,9 +145,12 @@ namespace CsvCompare
             openFileDialog2.ShowDialog();
             txtSe.Text = openFileDialog2.FileName;
             LimparDatagrid();
-            BloqueiaAplicacao();
-            CarregaArquivoEscritura(txtSe.Text);
-            DesbloqueiaAplicacao();
+            if (ValidaSe())
+            {
+                BloqueiaAplicacao();
+                CarregaArquivoEscritura(txtSe.Text);
+                DesbloqueiaAplicacao();
+            }
         }
 
         private void BtnCompare_Click(object sender, EventArgs e)
@@ -219,7 +225,7 @@ namespace CsvCompare
 
                 lblTotalCsv.Text = valuesEscritura.Count().ToString();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
                 txtSe.Text = "";
@@ -297,15 +303,33 @@ namespace CsvCompare
                 ehvalido = false;
                 MessageBox.Show("Você escolheu o mesmo arquivo para comparar. Selecione novamente 2 arquivos diferentes");
             }
-            else if (!txtSefaz.Text.Contains("RECEBIMENTO_NFE"))
+
+            return ehvalido;
+        }
+
+        private bool ValidaSe()
+        {
+            bool ehValido = true;
+
+            if (!txtSe.Text.Contains("DW_NFE"))
             {
-                ehvalido = false;
-                MessageBox.Show("Arquivo do sefaz inválido.");
+                txtSe.Text = "";
+                MessageBox.Show("Arquivo do recebimento inválido.");
+                ehValido = false;
             }
-            else if (!txtSe.Text.Contains("DW_NFE"))
+
+            return ehValido;
+        }
+
+        private bool ValidaSefaz()
+        {
+            bool ehvalido = true;
+
+            if (!txtSefaz.Text.Contains("RECEBIMENTO_NFE"))
             {
+                txtSefaz.Text = "";
+                MessageBox.Show("Arquivo do sefaz inválido.");
                 ehvalido = false;
-                MessageBox.Show("Arquivo Escritura inválido");
             }
 
             return ehvalido;
