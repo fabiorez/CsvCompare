@@ -154,10 +154,12 @@ namespace CsvCompare
                 List<Comparacao> resultado = CompararArquivos();
 
                 dgvFiles.DataSource = resultado;
-            }
+            }           
 
             btnCompare.Text = "Compare";
             btnCompare.Enabled = true;
+
+            AjustarNomeColunas();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -184,6 +186,15 @@ namespace CsvCompare
 
         #region Metodos de Apoio
 
+        public void AjustarNomeColunas()
+        {
+            dgvFiles.Columns[0].HeaderText = "CNPJ";
+            dgvFiles.Columns[1].HeaderText = "N.º DA NOTA";
+            dgvFiles.Columns[2].HeaderText = "VALOR SEFAZ";
+            dgvFiles.Columns[3].HeaderText = "VALOR S.ESCRITURA";
+            dgvFiles.Columns[4].HeaderText = "RESULTADO";
+        }
+
         public void AlterarCorDatagrid(DataGridView dgv)
         {
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
@@ -195,7 +206,7 @@ namespace CsvCompare
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;            
         }
 
         private void CarregaArquivoEscritura(string filePath)
