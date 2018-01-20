@@ -143,6 +143,7 @@ namespace CsvCompare
         private void BtnCompare_Click(object sender, EventArgs e)
         {
             LimparDatagrid();
+
             bool ehvalido = ValidarInformacoes();
 
             if (ehvalido)
@@ -167,6 +168,12 @@ namespace CsvCompare
         {
             MessageBox.Show("Não implementado");
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            MessageBox.Show("Funcionalidade Não Implementada");
+        }
+
         #endregion
 
         #region Metodos de Apoio
@@ -235,7 +242,13 @@ namespace CsvCompare
         {
             bool ehvalido = true;
 
-            if (txtSefaz.Text == txtSe.Text)
+            if(txtSefaz.Text == "" || txtSe.Text == "")
+            {
+                ehvalido = false;
+                MessageBox.Show("Favor selecionar os dois arquivos para que possa ser feita a comparação");
+            }
+
+            else if (txtSefaz.Text == txtSe.Text)
             {
                 ehvalido = false;
                 MessageBox.Show("Você escolheu o mesmo arquivo para comparar. Selecione novamente 2 arquivos diferentes");
@@ -319,9 +332,5 @@ namespace CsvCompare
 
         #endregion
 
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            MessageBox.Show("Funcionalidade Não Implementada");
-        }
     }
 }
