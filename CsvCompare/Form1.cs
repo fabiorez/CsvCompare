@@ -144,6 +144,9 @@ namespace CsvCompare
         {
             LimparDatagrid();
 
+            btnCompare.Text = "Aguarde";
+            btnCompare.Enabled = false;
+
             bool ehvalido = ValidarInformacoes();
 
             if (ehvalido)
@@ -152,6 +155,9 @@ namespace CsvCompare
 
                 dgvFiles.DataSource = resultado;
             }
+
+            btnCompare.Text = "Compare";
+            btnCompare.Enabled = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
