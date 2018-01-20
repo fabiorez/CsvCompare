@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dgvFiles = new System.Windows.Forms.DataGridView();
-            this.btnFile1 = new System.Windows.Forms.Button();
             this.btnFile2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
@@ -53,6 +52,9 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnFile1 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,6 +63,8 @@
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvFiles
@@ -72,19 +76,6 @@
             this.dgvFiles.Size = new System.Drawing.Size(711, 235);
             this.dgvFiles.TabIndex = 0;
             // 
-            // btnFile1
-            // 
-            this.btnFile1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.btnFile1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFile1.ForeColor = System.Drawing.Color.Black;
-            this.btnFile1.Location = new System.Drawing.Point(451, 20);
-            this.btnFile1.Name = "btnFile1";
-            this.btnFile1.Size = new System.Drawing.Size(111, 27);
-            this.btnFile1.TabIndex = 1;
-            this.btnFile1.Text = "XLS SEFAZ";
-            this.btnFile1.UseVisualStyleBackColor = false;
-            this.btnFile1.Click += new System.EventHandler(this.Button1_Click);
-            // 
             // btnFile2
             // 
             this.btnFile2.BackColor = System.Drawing.SystemColors.MenuBar;
@@ -92,7 +83,7 @@
             this.btnFile2.ForeColor = System.Drawing.Color.Black;
             this.btnFile2.Location = new System.Drawing.Point(451, 58);
             this.btnFile2.Name = "btnFile2";
-            this.btnFile2.Size = new System.Drawing.Size(111, 27);
+            this.btnFile2.Size = new System.Drawing.Size(111, 28);
             this.btnFile2.TabIndex = 2;
             this.btnFile2.Text = "CSV SE";
             this.btnFile2.UseVisualStyleBackColor = false;
@@ -203,6 +194,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Controls.Add(this.pictureBox2);
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.txtSefaz);
@@ -311,6 +304,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
+            // btnFile1
+            // 
+            this.btnFile1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btnFile1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFile1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFile1.ForeColor = System.Drawing.Color.Black;
+            this.btnFile1.Location = new System.Drawing.Point(452, 19);
+            this.btnFile1.Name = "btnFile1";
+            this.btnFile1.Size = new System.Drawing.Size(111, 27);
+            this.btnFile1.TabIndex = 1;
+            this.btnFile1.Text = "XLS SEFAZ";
+            this.btnFile1.UseVisualStyleBackColor = false;
+            this.btnFile1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(534, 61);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 22);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(535, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,6 +373,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,7 +383,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvFiles;
-        private System.Windows.Forms.Button btnFile1;
         private System.Windows.Forms.Button btnFile2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
@@ -377,6 +405,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFile1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
