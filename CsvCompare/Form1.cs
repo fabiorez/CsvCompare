@@ -163,6 +163,10 @@ namespace CsvCompare
 
             if (ehvalido)
             {
+                if(lblTotalXls.Text != valuesSefaz.Count.ToString())
+                {
+                    CarregaArquivoSefaz(txtSefaz.Text);
+                }
                 List<Comparacao> resultado = CompararArquivos();
 
                 dgvFiles.DataSource = resultado;
@@ -188,7 +192,7 @@ namespace CsvCompare
             dgvFiles.Columns[0].HeaderText = "CNPJ";
             dgvFiles.Columns[1].HeaderText = "N.º DA NOTA";
             dgvFiles.Columns[2].HeaderText = "VALOR SEFAZ";
-            dgvFiles.Columns[3].HeaderText = "VALOR S.ESCRITURA";
+            dgvFiles.Columns[3].HeaderText = "VALOR S. ESCRITURA";
             dgvFiles.Columns[4].HeaderText = "RESULTADO";
         }
 
@@ -378,6 +382,7 @@ namespace CsvCompare
                 {
                     bool ehDiferente = true;
                     string valorEscritura = "";
+                    string valorSefaz = "";
 
                     foreach (var escritura in valuesEscritura)
                     {
@@ -386,20 +391,19 @@ namespace CsvCompare
 
                         if (notaSefaz == notaEscritura)
                         {
-                            if (Convert.ToDecimal(sefaz.SefazValor) == Convert.ToDecimal(escritura.EscrituraValor))
+                            valorEscritura = (Math.Round(Convert.ToDecimal(escritura.EscrituraValor), 2)).ToString();
+                            valorSefaz = (Math.Round(Convert.ToDecimal(sefaz.SefazValor), 2)).ToString();
+
+                            if (Math.Round(Convert.ToDecimal(sefaz.SefazValor), 2) == (Math.Round(Convert.ToDecimal(escritura.EscrituraValor), 2)))
                             {
                                 ehDiferente = false;
-                            }
-                            else
-                            {
-                                valorEscritura = escritura.EscrituraValor;
                             }
                         }
                     }
 
                     if (ehDiferente)
                     {
-                        resultado.Add(new Comparacao(sefaz.SefazCnpj, sefaz.SefazNota + "-" + sefaz.SefazSerie, sefaz.SefazValor, valorEscritura, "Divergencia de valor"));
+                        resultado.Add(new Comparacao(sefaz.SefazCnpj, sefaz.SefazNota + "-" + sefaz.SefazSerie, valorSefaz, valorEscritura, "Divergencia de valor"));
                         qtdeDivergentes++;
                     }
                 }

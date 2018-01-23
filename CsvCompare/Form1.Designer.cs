@@ -342,11 +342,11 @@
             // lblAguarde
             // 
             this.lblAguarde.AutoSize = true;
-            this.lblAguarde.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAguarde.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAguarde.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblAguarde.Location = new System.Drawing.Point(172, 265);
+            this.lblAguarde.Location = new System.Drawing.Point(201, 280);
             this.lblAguarde.Name = "lblAguarde";
-            this.lblAguarde.Size = new System.Drawing.Size(398, 39);
+            this.lblAguarde.Size = new System.Drawing.Size(297, 29);
             this.lblAguarde.TabIndex = 23;
             this.lblAguarde.Text = "AGUARDE UM MOMENTO ...";
             this.lblAguarde.Visible = false;
