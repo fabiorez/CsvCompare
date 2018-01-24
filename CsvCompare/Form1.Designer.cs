@@ -56,6 +56,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnExportar = new System.Windows.Forms.Button();
             this.lblAguarde = new System.Windows.Forms.Label();
+            this.btnExportarExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,7 +75,7 @@
             this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFiles.Location = new System.Drawing.Point(25, 170);
             this.dgvFiles.Name = "dgvFiles";
-            this.dgvFiles.Size = new System.Drawing.Size(711, 235);
+            this.dgvFiles.Size = new System.Drawing.Size(922, 235);
             this.dgvFiles.TabIndex = 0;
             // 
             // btnSe
@@ -82,9 +83,9 @@
             this.btnSe.BackColor = System.Drawing.SystemColors.MenuBar;
             this.btnSe.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSe.ForeColor = System.Drawing.Color.Black;
-            this.btnSe.Location = new System.Drawing.Point(451, 58);
+            this.btnSe.Location = new System.Drawing.Point(656, 58);
             this.btnSe.Name = "btnSe";
-            this.btnSe.Size = new System.Drawing.Size(111, 28);
+            this.btnSe.Size = new System.Drawing.Size(123, 28);
             this.btnSe.TabIndex = 2;
             this.btnSe.Text = "CSV SE";
             this.btnSe.UseVisualStyleBackColor = false;
@@ -103,7 +104,7 @@
             this.txtSe.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSe.Location = new System.Drawing.Point(12, 59);
             this.txtSe.Name = "txtSe";
-            this.txtSe.Size = new System.Drawing.Size(433, 27);
+            this.txtSe.Size = new System.Drawing.Size(638, 27);
             this.txtSe.TabIndex = 4;
             // 
             // label1
@@ -122,7 +123,7 @@
             this.btnCompare.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCompare.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompare.ForeColor = System.Drawing.Color.White;
-            this.btnCompare.Location = new System.Drawing.Point(613, 417);
+            this.btnCompare.Location = new System.Drawing.Point(821, 420);
             this.btnCompare.Name = "btnCompare";
             this.btnCompare.Size = new System.Drawing.Size(123, 32);
             this.btnCompare.TabIndex = 6;
@@ -134,9 +135,9 @@
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(482, 12);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(693, 12);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(254, 39);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(241, 46);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 7;
             this.pictureBoxLogo.TabStop = false;
@@ -146,7 +147,7 @@
             this.txtSefaz.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSefaz.Location = new System.Drawing.Point(12, 20);
             this.txtSefaz.Name = "txtSefaz";
-            this.txtSefaz.Size = new System.Drawing.Size(433, 27);
+            this.txtSefaz.Size = new System.Drawing.Size(638, 27);
             this.txtSefaz.TabIndex = 10;
             // 
             // lblDivergentes
@@ -205,7 +206,7 @@
             this.groupBox3.Controls.Add(this.btnSe);
             this.groupBox3.Location = new System.Drawing.Point(25, 64);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(711, 100);
+            this.groupBox3.Size = new System.Drawing.Size(922, 100);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Arquivos";
@@ -213,7 +214,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(535, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(751, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(26, 22);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -223,7 +224,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(534, 61);
+            this.pictureBox2.Location = new System.Drawing.Point(750, 61);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(26, 22);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -233,7 +234,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.lblTotalCsv);
-            this.groupBox6.Location = new System.Drawing.Point(582, 52);
+            this.groupBox6.Location = new System.Drawing.Point(786, 52);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(123, 33);
             this.groupBox6.TabIndex = 17;
@@ -255,7 +256,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.lblTotalXls);
-            this.groupBox5.Location = new System.Drawing.Point(582, 14);
+            this.groupBox5.Location = new System.Drawing.Point(786, 14);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(123, 33);
             this.groupBox5.TabIndex = 16;
@@ -280,9 +281,9 @@
             this.btnSefaz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSefaz.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSefaz.ForeColor = System.Drawing.Color.Black;
-            this.btnSefaz.Location = new System.Drawing.Point(452, 19);
+            this.btnSefaz.Location = new System.Drawing.Point(656, 19);
             this.btnSefaz.Name = "btnSefaz";
-            this.btnSefaz.Size = new System.Drawing.Size(111, 27);
+            this.btnSefaz.Size = new System.Drawing.Size(124, 27);
             this.btnSefaz.TabIndex = 1;
             this.btnSefaz.Text = "XLS SEFAZ";
             this.btnSefaz.UseVisualStyleBackColor = false;
@@ -293,7 +294,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(758, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(972, 24);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -344,19 +345,31 @@
             this.lblAguarde.AutoSize = true;
             this.lblAguarde.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAguarde.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblAguarde.Location = new System.Drawing.Point(201, 280);
+            this.lblAguarde.Location = new System.Drawing.Point(336, 274);
             this.lblAguarde.Name = "lblAguarde";
             this.lblAguarde.Size = new System.Drawing.Size(297, 29);
             this.lblAguarde.TabIndex = 23;
             this.lblAguarde.Text = "AGUARDE UM MOMENTO ...";
             this.lblAguarde.Visible = false;
             // 
+            // btnExportarExcel
+            // 
+            this.btnExportarExcel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportarExcel.Location = new System.Drawing.Point(660, 419);
+            this.btnExportarExcel.Name = "btnExportarExcel";
+            this.btnExportarExcel.Size = new System.Drawing.Size(141, 33);
+            this.btnExportarExcel.TabIndex = 24;
+            this.btnExportarExcel.Text = "EXPORTAR PARA EXCEL";
+            this.btnExportarExcel.UseVisualStyleBackColor = true;
+            this.btnExportarExcel.Click += new System.EventHandler(this.BtnExportarExcel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(758, 461);
+            this.ClientSize = new System.Drawing.Size(972, 461);
+            this.Controls.Add(this.btnExportarExcel);
             this.Controls.Add(this.lblAguarde);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.groupBox4);
@@ -423,6 +436,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblAguarde;
+        private System.Windows.Forms.Button btnExportarExcel;
     }
 }
 
