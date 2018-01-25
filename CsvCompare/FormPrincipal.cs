@@ -9,125 +9,25 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CsvCompare
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipal : Form
     {
+
         #region variaveis globais
         List<ArquivoSefaz> valuesSefaz = new List<ArquivoSefaz>();
         List<ArquivoEscritura> valuesEscritura = new List<ArquivoEscritura>();
+        List<Comparacao> resultado = new List<Comparacao>();
         #endregion
 
         #region Formulario
 
-        public Form1()
+        public FormPrincipal()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormPrincipal_Load(object sender, EventArgs e)
         {
             AlterarCorDatagrid(dgvFiles);
-        }
-
-        #endregion
-
-        #region Classes
-
-        class ArquivoSefaz
-        {
-            public string SefazNota { get; set; }
-            public string SefazSerie { get; set; }
-            public string SefazCnpj { get; set; }
-            public string SefazValor { get; set; }
-            public string SefazCfop { get; set; }
-
-            //public static ArquivoSefaz FromCsv(string csvLine)
-            //{
-            //    string[] values = csvLine.Split(';');
-
-            //    if (!string.IsNullOrEmpty(values[0]))
-            //    {
-            //        if (!values[0].Contains("/"))
-            //        {
-            //            if (values.Count() > 2)
-            //            {
-            //                ArquivoSefaz arquivo = new ArquivoSefaz();
-            //                arquivo.SefazNota = values[0].ToString();
-            //                arquivo.SefazSerie = values[1].ToString();
-            //                arquivo.SefazCnpj = values[3].ToString();
-            //                if(values.Count() > 23)
-            //                {
-            //                    arquivo.SefazCfop = values[23].ToString();
-            //                }
-            //                if (values.Count() > 29)
-            //                {
-            //                    arquivo.SefazValor = values[29].Replace(".", "");
-            //                }
-            //                else
-            //                {
-            //                    arquivo.SefazValor = "0";
-            //                }
-            //                return arquivo;
-            //            }
-            //        }
-            //    }
-            //    return null;
-            //}
-        }
-
-        class ArquivoEscritura
-        {
-            public string EscrituraCnpj { get; set; }
-            public string EscrituraNota { get; set; }
-            public string EscrituraSerie { get; set; }
-            public string EscrituraValor { get; set; }
-
-            public static ArquivoEscritura FromCsv(string csvLine)
-            {
-                string[] values = csvLine.Split(',');
-                if (values.Count() > 2)
-                {
-                    ArquivoEscritura arquivo = new ArquivoEscritura();
-                    arquivo.EscrituraNota = values[2].ToString();
-                    arquivo.EscrituraSerie = values[3].ToString();
-                    arquivo.EscrituraValor = values[9].ToString() + "," + values[10].ToString();
-                    if (values.Count() > 25)
-                    {
-                        arquivo.EscrituraCnpj = values[25].ToString();
-                    }
-                    else
-                    {
-                        arquivo.EscrituraCnpj = "sem cnpj";
-                    }
-                    return arquivo;
-                }
-                return null;
-            }
-        }
-
-        class Comparacao
-        {
-            public string Cnpj { get; set; }
-            public string Nota { get; set; }
-            public string ValorSefaz { get; set; }
-            public string ValorEscritura { get; set; }
-            public string Cfop { get; set; }
-            public string Resultado { get; set; }
-
-            public Comparacao()
-            {
-
-            }
-
-            public Comparacao(string cnpj, string nota, string valorSefaz, string valorEscritura, string cfop, string resultado)
-            {
-                Cnpj = cnpj;
-                Nota = nota;
-                ValorSefaz = valorSefaz;
-                ValorEscritura = valorEscritura;
-                Cfop = cfop;
-                Resultado = resultado;
-            }
-
         }
 
         #endregion
@@ -162,6 +62,8 @@ namespace CsvCompare
 
         private void BtnCompare_Click(object sender, EventArgs e)
         {
+            resultado.Clear();
+
             LimparDatagrid();
 
             BloqueiaAplicacao();
@@ -174,13 +76,13 @@ namespace CsvCompare
                 {
                     CarregaArquivoSefaz(txtSefaz.Text);
                 }
-                List<Comparacao> resultado = CompararArquivos();
+                resultado = CompararArquivos();
 
                 dgvFiles.DataSource = resultado;
 
                 AjustarNomeColunas();
 
-                ExportarParaExcel();
+                GerarExcel();
             }
 
             DesbloqueiaAplicacao();
@@ -194,8 +96,8 @@ namespace CsvCompare
 
         private void BtnExportarExcel_Click(object sender, EventArgs e)
         {
-            BloqueiaAplicacao();            
-            ExportarParaExcel();
+            BloqueiaAplicacao();
+            GerarExcel();
             DesbloqueiaAplicacao();
         }
         #endregion
@@ -219,7 +121,6 @@ namespace CsvCompare
             dgv.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
             dgv.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             dgv.BackgroundColor = Color.White;
-
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
@@ -250,6 +151,7 @@ namespace CsvCompare
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
                 txtSe.Text = "";
+                var erro = ex;
             }
         }
 
@@ -272,7 +174,7 @@ namespace CsvCompare
                     sefaz.SefazSerie = ((Excel.Range)range.Cells[row, 2]).Text;
                     sefaz.SefazCnpj = ((Excel.Range)range.Cells[row, 4]).Text;
                     sefaz.SefazCfop = ((Excel.Range)range.Cells[row, 24]).Text;
-                    sefaz.SefazValor = (((Excel.Range)range.Cells[row, 30]).Text).ToString().Replace(".", "");
+                    sefaz.SefazValor = Convert.ToDouble((((Excel.Range)range.Cells[row, 30]).Text).ToString().Replace(".", "").Replace(",", "."));
 
                     valuesSefaz.Add(sefaz);
                 }
@@ -283,6 +185,7 @@ namespace CsvCompare
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar o arquivo, tente novamente");
                 txtSefaz.Text = "";
+                var erro = ex;
             }
         }
 
@@ -305,65 +208,13 @@ namespace CsvCompare
             lblAguarde.Visible = false;
         }
 
-        private void ExportarParaExcel()
+        private void GerarExcel()
         {
-            try
+            if (saveFileDialogExcel.ShowDialog() == DialogResult.OK)
             {
-                SaveFileDialog salvar = new SaveFileDialog
-                {
-                    Filter = "Excel (*.xls)|*.xls",
-                    FileName = "ComparativoSefazSe"
-                };
-
-                if (salvar.ShowDialog() == DialogResult.OK)
-                {
-                    Excel.Application app; //aplicacao excel
-                    Excel.Workbook wb; //pasta
-                    Excel.Worksheet ws; //planilha
-                    object misValue = System.Reflection.Missing.Value;
-
-                    app = new Excel.Application();
-                    wb = app.Workbooks.Add();
-                    ws = (Excel.Worksheet)wb.Worksheets.get_Item(1);
-
-                    //escrevendo linhas
-                    for (int i = 0; i < dgvFiles.Rows.Count - 1; i++)
-                    {
-                        for (int j = 0; j < dgvFiles.Columns.Count; j++)
-                        {
-                            if ((dgvFiles.Rows[i].Cells[j].Value == null) == false)
-                            {
-                                ws.Cells[i + 2, j + 1] = dgvFiles.Rows[i].Cells[j].Value.ToString();
-                            }
-                        }
-                    }
-
-                    //escrevendo titulo
-                    ws.Cells[1, 1] = "CNPJ";
-                    ws.Cells[1, 2] = "N.º DA NOTA";
-                    ws.Cells[1, 3] = "VALOR SEFAZ";
-                    ws.Cells[1, 4] = "VALOR S. ESCRITURA";
-                    ws.Cells[1, 5] = "CFOP";
-                    ws.Cells[1, 6] = "RESULTADO";
-
-                    //Excel Header
-                    var range = ws.get_Range("A1", "F1");
-                    range.Font.Color = Color.Gray;
-                    range.Font.Size = 12;
-                    
-
-                    // salva o arquivo
-                    wb.SaveAs(salvar.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                        Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                    wb.Close(true, misValue, misValue);
-                    app.Quit(); // encerra o excel
-
-                    MessageBox.Show("Exportado com sucesso!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error ao exportar as informações devido a: " + ex.ToString());
+                ArquivoExcelComparativo arq = new ArquivoExcelComparativo(resultado);
+                arq.GerarArquivo(saveFileDialogExcel.FileName);
+                MessageBox.Show("O arquivo " + saveFileDialogExcel.FileName + " foi gerado com sucesso!");
             }
         }
 
@@ -443,7 +294,7 @@ namespace CsvCompare
 
                     if (ehInexistente)
                     {
-                        resultado.Add(new Comparacao(sefaz.SefazCnpj, sefaz.SefazNota + "-" + sefaz.SefazSerie, sefaz.SefazValor, "", sefaz.SefazCfop, "Nota Inexistente"));
+                        resultado.Add(new Comparacao(sefaz.SefazCnpj, sefaz.SefazNota + "-" + sefaz.SefazSerie, sefaz.SefazValor, null, sefaz.SefazCfop, "Nota Inexistente"));
                         listaRemovidos.Add(sefaz);
                     }
                 }
@@ -462,8 +313,8 @@ namespace CsvCompare
                 if (sefaz != null && !string.IsNullOrEmpty(sefaz.SefazCnpj))
                 {
                     bool ehDiferente = true;
-                    string valorEscritura = "";
-                    string valorSefaz = "";
+                    double valorEscritura = 0;
+                    double valorSefaz = 0;
 
                     foreach (var escritura in valuesEscritura)
                     {
@@ -472,10 +323,10 @@ namespace CsvCompare
 
                         if (notaSefaz == notaEscritura)
                         {
-                            valorEscritura = (Math.Round(Convert.ToDecimal(escritura.EscrituraValor), 2)).ToString();
-                            valorSefaz = (Math.Round(Convert.ToDecimal(sefaz.SefazValor), 2)).ToString();
+                            valorEscritura = Math.Round(escritura.EscrituraValor, 2);
+                            valorSefaz = Math.Round(sefaz.SefazValor, 2);
 
-                            if (Math.Round(Convert.ToDecimal(sefaz.SefazValor), 2) == (Math.Round(Convert.ToDecimal(escritura.EscrituraValor), 2)))
+                            if (valorSefaz == valorEscritura)
                             {
                                 ehDiferente = false;
                             }
@@ -493,6 +344,18 @@ namespace CsvCompare
             lblDivergentes.Text = qtdeDivergentes.ToString();
         }
 
+        private void DgvFiles_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            try
+            {
+                dgvFiles.Columns[2].DefaultCellStyle.Format = "C2";
+                dgvFiles.Columns[3].DefaultCellStyle.Format = "C2";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         #endregion
 
     }

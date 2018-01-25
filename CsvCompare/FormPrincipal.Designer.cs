@@ -1,6 +1,6 @@
 ﻿namespace CsvCompare
 {
-    partial class Form1
+    partial class FormPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.dgvFiles = new System.Windows.Forms.DataGridView();
             this.btnSe = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -57,6 +57,7 @@
             this.btnExportar = new System.Windows.Forms.Button();
             this.lblAguarde = new System.Windows.Forms.Label();
             this.btnExportarExcel = new System.Windows.Forms.Button();
+            this.saveFileDialogExcel = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -75,8 +76,9 @@
             this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFiles.Location = new System.Drawing.Point(25, 170);
             this.dgvFiles.Name = "dgvFiles";
-            this.dgvFiles.Size = new System.Drawing.Size(922, 235);
+            this.dgvFiles.Size = new System.Drawing.Size(922, 320);
             this.dgvFiles.TabIndex = 0;
+            this.dgvFiles.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvFiles_DataBindingComplete);
             // 
             // btnSe
             // 
@@ -112,7 +114,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(68, 12);
+            this.label1.Location = new System.Drawing.Point(19, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(249, 39);
             this.label1.TabIndex = 5;
@@ -123,7 +125,7 @@
             this.btnCompare.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCompare.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompare.ForeColor = System.Drawing.Color.White;
-            this.btnCompare.Location = new System.Drawing.Point(821, 420);
+            this.btnCompare.Location = new System.Drawing.Point(824, 503);
             this.btnCompare.Name = "btnCompare";
             this.btnCompare.Size = new System.Drawing.Size(123, 32);
             this.btnCompare.TabIndex = 6;
@@ -135,9 +137,9 @@
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(693, 12);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(765, 12);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(241, 46);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(182, 46);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 7;
             this.pictureBoxLogo.TabStop = false;
@@ -177,7 +179,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblInexistentes);
-            this.groupBox1.Location = new System.Drawing.Point(25, 411);
+            this.groupBox1.Location = new System.Drawing.Point(26, 496);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(135, 38);
             this.groupBox1.TabIndex = 15;
@@ -187,7 +189,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblDivergentes);
-            this.groupBox2.Location = new System.Drawing.Point(166, 411);
+            this.groupBox2.Location = new System.Drawing.Point(167, 496);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(135, 38);
             this.groupBox2.TabIndex = 16;
@@ -302,12 +304,12 @@
             // 
             this.groupBox4.Controls.Add(this.checkBox2);
             this.groupBox4.Controls.Add(this.checkBox1);
-            this.groupBox4.Location = new System.Drawing.Point(308, 411);
+            this.groupBox4.Location = new System.Drawing.Point(309, 496);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(190, 38);
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Exportar Correção";
+            this.groupBox4.Text = "Gerar Correção";
             // 
             // checkBox2
             // 
@@ -332,11 +334,11 @@
             // btnExportar
             // 
             this.btnExportar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportar.Location = new System.Drawing.Point(495, 417);
+            this.btnExportar.Location = new System.Drawing.Point(496, 502);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(75, 33);
             this.btnExportar.TabIndex = 22;
-            this.btnExportar.Text = "EXPORTAR";
+            this.btnExportar.Text = "GERAR";
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
             // 
@@ -345,30 +347,34 @@
             this.lblAguarde.AutoSize = true;
             this.lblAguarde.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAguarde.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblAguarde.Location = new System.Drawing.Point(336, 274);
+            this.lblAguarde.Location = new System.Drawing.Point(350, 300);
             this.lblAguarde.Name = "lblAguarde";
-            this.lblAguarde.Size = new System.Drawing.Size(297, 29);
+            this.lblAguarde.Size = new System.Drawing.Size(292, 29);
             this.lblAguarde.TabIndex = 23;
-            this.lblAguarde.Text = "AGUARDE UM MOMENTO ...";
+            this.lblAguarde.Text = "AGUARDE UM MOMENTO...";
             this.lblAguarde.Visible = false;
             // 
             // btnExportarExcel
             // 
             this.btnExportarExcel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportarExcel.Location = new System.Drawing.Point(660, 419);
+            this.btnExportarExcel.Location = new System.Drawing.Point(677, 504);
             this.btnExportarExcel.Name = "btnExportarExcel";
-            this.btnExportarExcel.Size = new System.Drawing.Size(141, 33);
+            this.btnExportarExcel.Size = new System.Drawing.Size(141, 31);
             this.btnExportarExcel.TabIndex = 24;
             this.btnExportarExcel.Text = "EXPORTAR PARA EXCEL";
             this.btnExportarExcel.UseVisualStyleBackColor = true;
             this.btnExportarExcel.Click += new System.EventHandler(this.BtnExportarExcel_Click);
             // 
-            // Form1
+            // saveFileDialogExcel
+            // 
+            this.saveFileDialogExcel.Filter = "Excel 97-2003 (*.xls)|*.xls";
+            // 
+            // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(972, 461);
+            this.ClientSize = new System.Drawing.Size(972, 548);
             this.Controls.Add(this.btnExportarExcel);
             this.Controls.Add(this.lblAguarde);
             this.Controls.Add(this.btnExportar);
@@ -383,9 +389,9 @@
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form1";
+            this.Name = "FormPrincipal";
             this.Text = "BERNHOEFT - TECHVIRTUS";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -437,6 +443,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblAguarde;
         private System.Windows.Forms.Button btnExportarExcel;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogExcel;
     }
 }
 

@@ -5,7 +5,10 @@ C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.Properties.Resources.
 C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csproj.GenerateResource.Cache
 C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.exe
 C:\Projetos Git\CsvCompare\CsvCompare\obj\Debug\CsvCompare.pdb
-C:\Projetos GIT\CsvCompare\CsvCompare\obj\Debug\CsvCompare.Form1.resources
 C:\Projetos GIT\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csprojResolveAssemblyReference.cache
-C:\Projetos GIT\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csproj.CoreCompileInputs.cache
 C:\Projetos GIT\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csproj.ResolveComReference.cache
+C:\Projetos GIT\CsvCompare\CsvCompare\obj\Debug\CsvCompare.FormPrincipal.resources
+C:\Projetos GIT\CsvCompare\CsvCompare\obj\Debug\CsvCompare.csproj.CoreCompileInputs.cache
+C:\Projetos GIT\CsvCompare\CsvCompare\bin\Debug\NPOI.dll
+C:\Projetos GIT\CsvCompare\CsvCompare\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Projetos GIT\CsvCompare\CsvCompare\bin\Debug\NPOI.xml
